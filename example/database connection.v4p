@@ -1,0 +1,79 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.dtd" >
+   <PATCH nodename="C:\project files\Solihul\Kinect+Projector\database connection.v4p" systemname="database connection" filename="C:\project files\Solihul\Kinect+Projector\database connection.v4p">
+   <NODE systemname="Database (SQLite Network)" filename="%VVVV%\addonpack\lib\nodes\plugins\SQLLiteNodes.dll" nodename="Database (SQLite Network)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1485" top="1875" width="3315" height="270">
+   </BOUNDS>
+   <PIN pinname="Connection String" encoded="0" visible="1">
+   </PIN>
+   <PIN pinname="Connect" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="1" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1680" top="600" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1680" top="600" width="2130" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" encoded="0" values="calibration.s3db">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Connection String|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="1500" top="1200" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" slicecount="1" encoded="0" values="|Data Source=&quot;|">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" slicecount="1" encoded="0" values="&quot;;Version=3;">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="0" dstpinname="Connection String">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output String" dstnodeid="2" dstpinname="Input 2">
+   </LINK>
+   <BOUNDS type="Window" left="14895" top="7260" width="7245" height="4080">
+   </BOUNDS>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4725" top="2535" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4725" top="2535" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Is Connected|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Is Connected" dstnodeid="3" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="5" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="1470" top="2535" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1470" top="2535" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Connection">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Connection" dstnodeid="5" dstpinname="Input Node">
+   </LINK>
+   </PATCH>

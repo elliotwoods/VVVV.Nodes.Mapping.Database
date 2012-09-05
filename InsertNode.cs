@@ -13,7 +13,7 @@ using VVVV.Core.Logging;
 namespace VVVV.Nodes.Mapping.Database
 {
     #region PluginInfo
-    [PluginInfo(Name = "Insert", Category = "Mapping", Version = "Correspondences", Help = "Basic template with one value in/out", Tags = "")]
+    [PluginInfo(Name = "Insert", Category = "Mapping", Version = "Correspondences", Tags = "", AutoEvaluate=true)]
     #endregion PluginInfo
     public class InsertNode : IPluginEvaluate
     {
@@ -21,8 +21,11 @@ namespace VVVV.Nodes.Mapping.Database
         [Input("Database", IsSingle = true)]
         Pin<Database> FInDatabase;
 
+        [Input("Projector Index")]
+        ISpread<int> FInProjectorIndex;
+
         [Input("Board Index")]
-        ISpread<int> FInIndex;
+        ISpread<int> FInBoardIndex;
 
         [Input("World")]
         ISpread<Vector3D> FInWorld;
@@ -49,21 +52,26 @@ namespace VVVV.Nodes.Mapping.Database
                 {
                     FOutStatus[0] = "No database connected";
                     return;
-                }
+				}
+				else if (FOutStatus[0] == "No database connected")
+				{
+					FOutStatus[0] = "OK";
+				}
 
                 DateTime Timestamp = DateTime.Now;
                 int BoardIndex = FInDatabase[0].NextBoardIndex;
 
-                int count = 0;
+                int countInsert = 0;
                 for (int i = 0; i < SpreadMax; i++)
                 {
                     if (FInInsert[i])
                     {
-                        FInDatabase[0].Insert(BoardIndex, FInWorld[i], FInProjection[i], Timestamp);
-                        count++;
+						FInDatabase[0].Insert(FInProjectorIndex[i], FInBoardIndex[i], FInWorld[i], FInProjection[i], Timestamp);
+                        countInsert++;
                     }
                 }
-                FOutStatus[0] = "Inserted " + count.ToString() + " correspondences.";
+                if (countInsert > 0)
+                    FOutStatus[0] = "Inserted " + countInsert.ToString() + " correspondences." ;
             }
         }
     }

@@ -19,20 +19,33 @@
     <ReferencePath>..\..\..\..\..\vvvv_45beta28\bin\managed\</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <OutputPath>..\..\..\..\..\vvvv_45beta28\addonpack\lib\nodes\plugins\</OutputPath>
+    <OutputPath>Package\plugins\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Emgu.CV, Version=2.3.0.1416, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\addonpack\lib\nodes\plugins\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util, Version=2.3.0.1416, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\addonpack\lib\nodes\plugins\Emgu.Util.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition.Codeplex">
       <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
     <Reference Include="VVVV.Core">
       <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\lib\core\VVVV.Core.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Hosting">
       <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\lib\core\VVVV.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="VVVV.Nodes.OpenCV">
+      <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\addonpack\lib\nodes\plugins\VVVV.Nodes.OpenCV.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.PluginInterfaces">
       <HintPath>..\..\..\..\..\vvvv\vvvv-sdk\vvvv45\lib\core\VVVV.PluginInterfaces.dll</HintPath>
@@ -45,10 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calibrate.cs" />
+    <Compile Include="Clear.cs" />
     <Compile Include="DatabaseNode.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="InsertNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
