@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\project files\Solihul\Kinect+Projector\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
-   <BOUNDS type="Window" left="11520" top="0" width="16200" height="13755">
+   <PATCH nodename="C:\project files\Solihul\VVVV.Nodes.Mapping.Database\plugins\CorrespondencesMappingDatabase\example\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
+   <BOUNDS type="Window" left="11670" top="1425" width="16200" height="13755">
    </BOUNDS>
    <NODE systemname="detection" filename="detection.v4p" nodename="detection.v4p" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="6115" top="1997" width="5040" height="270">
@@ -78,7 +78,7 @@
    </NODE>
    <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Enabled">
    </LINK>
-   <NODE systemname="detection hold still" filename="detection hold still.v4p" nodename="detection hold still.v4p" componentmode="InAWindow" id="58">
+   <NODE systemname="detection hold still" filename="detection hold still.v4p" nodename="detection hold still.v4p" componentmode="Hidden" id="58">
    <BOUNDS type="Node" left="9510" top="3165" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="10710" top="2040" width="9660" height="12435">
@@ -381,7 +381,7 @@
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="2" values="1024,768">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
@@ -391,7 +391,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Resolution" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Resolution">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -477,13 +477,13 @@
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Projector Index|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Projector Index|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
