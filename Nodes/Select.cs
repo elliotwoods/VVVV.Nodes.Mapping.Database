@@ -36,7 +36,7 @@ namespace VVVV.Nodes.Mapping.Database
         #endregion fields & pins
 
         //called when data for any output pin is requested
-        public void Evaluate2(int SpreadMax)
+        public override void Evaluate2(int SpreadMax)
         {
 			if (FInProjectorIndex.IsChanged)
 				this.Invalidate();
@@ -44,12 +44,11 @@ namespace VVVV.Nodes.Mapping.Database
 
 		public override void UpdateOutput(int SpreadMax)
 		{
-			int ProjectorCount = FDatabase.Projectors.Count;
-			FOutBoardIndex.SliceCount = ProjectorCount;
-			FOutProjection.SliceCount = ProjectorCount;
-			FOutWorld.SliceCount = ProjectorCount;
+            FOutBoardIndex.SliceCount = SpreadMax;
+            FOutProjection.SliceCount = SpreadMax;
+            FOutWorld.SliceCount = SpreadMax;
 
-			for (int slice = 0; slice < ProjectorCount; slice++)
+            for (int slice = 0; slice < SpreadMax; slice++)
 			{
 				if (FDatabase.Projectors.ContainsKey(FInProjectorIndex[slice]))
 				{

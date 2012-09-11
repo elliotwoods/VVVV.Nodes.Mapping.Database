@@ -39,7 +39,7 @@ namespace VVVV.Nodes.Mapping.Database
 		}
 
 		public abstract void UpdateOutput(int SpreadMax);
-		public virtual void Evaluate2(int SpreadMax) { }
+        public abstract void Evaluate2(int SpreadMax);
 
 		void SetDatabase(Database database)
 		{

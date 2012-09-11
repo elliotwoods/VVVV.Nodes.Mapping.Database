@@ -30,9 +30,11 @@ namespace VVVV.Nodes.Mapping.Database
 		#endregion fields & pins
 
 		//called when data for any output pin is requested
-		public void Evaluate(int SpreadMax)
-		{
-		}
+        public override void Evaluate2(int SpreadMax)
+        {
+            if (FInProjectorIndex.IsChanged)
+                this.Invalidate();
+        }
 		
 		public override void UpdateOutput(int SpreadMax)
 		{

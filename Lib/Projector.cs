@@ -18,6 +18,7 @@ namespace VVVV.Nodes.Mapping.Database
 		{
 			this.FView = DeSerialiseMatrix(info, "View");
 			this.FProjection = DeSerialiseMatrix(info, "Projection");
+            this.ReprojectionError = (double)info.GetValue("Reprojection Error", typeof(double));
 			this.Calibrated = (bool)info.GetValue("Calibrated", typeof(bool));
 			this.Correspondences = (List<Correspondence>)info.GetValue("Correspondences", typeof(List<Correspondence>));
 		}

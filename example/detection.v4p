@@ -63,7 +63,7 @@
    </PIN>
    <BOUNDS type="Window" left="14910" top="1785" width="9330" height="8205">
    </BOUNDS>
-   <PIN pinname="Board Pitch" slicecount="1" values="0.32">
+   <PIN pinname="Board Pitch" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -485,7 +485,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="8802" top="6294" width="3655" height="4585">
    </BOUNDS>
-   <BOUNDS type="Window" left="20115" top="10215" width="3660" height="4590">
+   <BOUNDS type="Window" left="20115" top="10215" width="4935" height="4590">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="37" srcpinname="Output" dstnodeid="45" dstpinname="Color" linkstyle="VHV">
@@ -506,7 +506,11 @@
    <LINKPOINT x="10635" y="7275">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="37" dstpinname="Alpha">
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="37" dstpinname="Alpha" linkstyle="VHV">
+   <LINKPOINT x="10035" y="6938">
+   </LINKPOINT>
+   <LINKPOINT x="10155" y="6938">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="38" srcpinname="Output" dstnodeid="37" dstpinname="Lightness">
    </LINK>
@@ -609,30 +613,10 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="maxjump" slicecount="1" values="0.4">
+   </PIN>
    </NODE>
    <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="66" dstpinname="Input Node">
-   </LINK>
-   <NODE systemname="Edge (EX9.Texture Filter)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\Filter\Edge\Edge (EX9.Texture Filter).v4p" nodename="Edge (EX9.Texture Filter)" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="13365" top="5700" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="67" dstpinname="RGB">
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="World Texture" dstnodeid="67" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="3000" y="3983">
-   </LINKPOINT>
-   <LINKPOINT x="13605" y="3983">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="RGB Texture" dstnodeid="68" dstpinname="Input" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="1620" y="3713">
-   </LINKPOINT>
-   <LINKPOINT x="13365" y="3713">
-   </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="69" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="3975" top="5535" width="0" height="0">
@@ -641,9 +625,59 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Chessboard transform|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Chessboard transform|">
    </PIN>
    </NODE>
    <LINK srcnodeid="69" srcpinname="Output Node" dstnodeid="6" dstpinname="Transform In">
    </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="75" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="13275" top="5115" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13275" top="5115" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Depth Texture" dstnodeid="75" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Edge (EX9.Texture Filter)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\Filter\Edge\Edge (EX9.Texture Filter).v4p" nodename="Edge (EX9.Texture Filter)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="13260" top="5670" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Brightness" slicecount="1" values="100">
+   </PIN>
+   <PIN pinname="Radius" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="75" srcpinname="Output Node" dstnodeid="72" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="World Texture" dstnodeid="67" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="3000" y="3983">
+   </LINKPOINT>
+   <LINKPOINT x="13605" y="3983">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="67" dstpinname="RGB">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="77" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="14100" top="5640" width="7740" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14100" top="5640" width="2715" height="1935">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|//on ati cards you may need to hack this module as L16 doesn&apos;t work well as a render target on these cards.&cr;&lf;you could manually change the DX9Texture types internally, or put a renderer inbetween which renders down to L8|" encoded="0">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>

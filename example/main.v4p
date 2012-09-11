@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
    <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
-   <BOUNDS type="Window" left="12600" top="1995" width="16200" height="13755">
+   <BOUNDS type="Window" left="8460" top="3645" width="16260" height="13755">
    </BOUNDS>
    <NODE systemname="detection" filename="detection.v4p" nodename="detection.v4p" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="4840" top="2492" width="7590" height="270">
@@ -283,7 +283,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="6135" top="8325" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="13230" top="5895" width="9000" height="9375">
+   <BOUNDS type="Window" left="9555" top="7425" width="9000" height="9375">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -306,7 +306,7 @@
    </LINK>
    <LINK srcnodeid="32" srcpinname="World XYZ" dstnodeid="72" dstpinname="Live World XYZ">
    </LINK>
-   <NODE systemname="CameraPreview (Transform DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Transform\CameraPreview (Transform DX9).v4p" nodename="CameraPreview (Transform DX9)" componentmode="Hidden" id="76">
+   <NODE systemname="CameraPreview (Transform DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Transform\CameraPreview (Transform DX9).v4p" nodename="CameraPreview (Transform DX9)" componentmode="InAWindow" id="76">
    <BOUNDS type="Node" left="10650" top="8325" width="2685" height="270">
    </BOUNDS>
    <PIN pinname="View" visible="1" slicecount="1" values="||">
@@ -348,8 +348,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="82" srcpinname="Output" dstnodeid="76" dstpinname="Projection">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="83" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="8340" top="540" width="0" height="0">
    </BOUNDS>
@@ -434,8 +432,6 @@
    </LINK>
    <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Insert">
    </LINK>
-   <LINK srcnodeid="72" srcpinname="Layer" dstnodeid="81" dstpinname="Layer 1">
-   </LINK>
    <LINK srcnodeid="32" srcpinname="World Preview Layer" dstnodeid="81" dstpinname="Layer 2" linkstyle="Bezier">
    <LINKPOINT x="10500" y="5813">
    </LINKPOINT>
@@ -507,6 +503,8 @@
    </PIN>
    <PIN pinname="Resolution" visible="1">
    </PIN>
+   <PIN pinname="Background Color" slicecount="1" visible="1" values="|0.47373,0.00000,0.37622,1.00000|">
+   </PIN>
    </NODE>
    <LINK srcnodeid="32" srcpinname="Chessboard Layer" dstnodeid="95" dstpinname="Layers" linkstyle="Bezier">
    <LINKPOINT x="8610" y="4845">
@@ -527,12 +525,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="95" srcpinname="Layer" dstnodeid="96" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Projector Test" dstnodeid="96" dstpinname="Input 1" linkstyle="Bezier">
-   <LINKPOINT x="12375" y="5160">
-   </LINKPOINT>
-   <LINKPOINT x="1710" y="5160">
-   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Switch" linkstyle="Bezier">
    <LINKPOINT x="13610" y="4268">
@@ -570,10 +562,6 @@
    <PIN pinname="Reprojection Error" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="76" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="97" srcpinname="Projection Matrix" dstnodeid="82" dstpinname="Input">
-   </LINK>
    <NODE systemname="ProjectorSet (Mapping Correspondences)" filename="%VVVV%\addonpack\lib\nodes\plugins\CorrespondencesMappingDatabase.dll" nodename="ProjectorSet (Mapping Correspondences)" componentmode="Hidden" id="98">
    <BOUNDS type="Node" left="13455" top="5385" width="100" height="100">
    </BOUNDS>
@@ -709,11 +697,11 @@
    </BOUNDS>
    <BOUNDS type="Box" left="12330" top="5970" width="615" height="1155">
    </BOUNDS>
-   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="px">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   <PIN pinname="Value Type" slicecount="1" values="Real">
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="6">
    </PIN>
@@ -783,9 +771,59 @@
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Chessboard transform|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Chessboard transform|">
    </PIN>
    </NODE>
    <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="32" dstpinname="Chessboard transform">
+   </LINK>
+   <NODE systemname="Switch (Color Input)" nodename="Switch (Color Input)" componentmode="Hidden" id="115">
+   <BOUNDS type="Node" left="2820" top="6585" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="|0.47373,0.00000,0.37622,1.00000|">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="|0.19815,0.52961,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="115" srcpinname="Output" dstnodeid="95" dstpinname="Background Color">
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="116">
+   <BOUNDS type="Node" left="2820" top="5820" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GT (Value)" nodename="GT (Value)" componentmode="Hidden" id="117">
+   <BOUNDS type="Node" left="2820" top="6180" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="116" srcpinname="Count" dstnodeid="117" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="117" srcpinname="Output" dstnodeid="115" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="World XYZ" dstnodeid="116" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="4845" y="4290">
+   </LINKPOINT>
+   <LINKPOINT x="2865" y="4290">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Layer" dstnodeid="81" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Projector Test" dstnodeid="96" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="12375" y="5160">
+   </LINKPOINT>
+   <LINKPOINT x="1710" y="5160">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="Projection Matrix" dstnodeid="82" dstpinname="Input">
    </LINK>
    </PATCH>
