@@ -19,6 +19,8 @@
    </PIN>
    <PIN pinname="Chessboard Layer" visible="1">
    </PIN>
+   <PIN pinname="Projector Test" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden" id="36">
    <BOUNDS type="Node" left="960" top="8100" width="100" height="100">
@@ -27,7 +29,7 @@
    </BOUNDS>
    <BOUNDS type="Window" left="31830" top="3195" width="6240" height="5145">
    </BOUNDS>
-   <PIN pinname="Layers" visible="1">
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="42">
@@ -208,7 +210,7 @@
    <PIN pinname="Database" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="68" dstpinname="Database" linkstyle="VHV">
+   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="68" dstpinname="Database" linkstyle="VHV" hiddenwhenlocked="1">
    <LINKPOINT x="1140" y="2323">
    </LINKPOINT>
    <LINKPOINT x="1860" y="2973">
@@ -255,11 +257,13 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Calibrate">
    </LINK>
    <NODE systemname="Calibrate (Mapping Correspondences)" filename="%VVVV%\addonpack\lib\nodes\plugins\CorrespondencesMappingDatabase.dll" nodename="Calibrate (Mapping Correspondences)" componentmode="Hidden" id="71">
-   <BOUNDS type="Node" left="11100" top="7440" width="2685" height="270">
+   <BOUNDS type="Node" left="7455" top="7440" width="2685" height="270">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -276,10 +280,10 @@
    <PIN pinname="Height" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="71" dstpinname="Database" linkstyle="Bezier">
-   <LINKPOINT x="2805" y="4125">
+   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="71" dstpinname="Database" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="1590" y="4125">
    </LINKPOINT>
-   <LINKPOINT x="9435" y="4530">
+   <LINKPOINT x="7005" y="4530">
    </LINKPOINT>
    </LINK>
    <NODE systemname="preview data" filename="preview data.v4p" componentmode="Hidden" id="72" nodename="preview data.v4p">
@@ -300,7 +304,7 @@
    <PIN pinname="Projector Index" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="72" dstpinname="Database" linkstyle="Bezier">
+   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="72" dstpinname="Database" linkstyle="Bezier" hiddenwhenlocked="1">
    <LINKPOINT x="1140" y="4793">
    </LINKPOINT>
    <LINKPOINT x="6135" y="4793">
@@ -308,20 +312,6 @@
    </LINK>
    <LINK srcnodeid="32" srcpinname="World Preview Layer" dstnodeid="72" dstpinname="Kinect Layer">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="73" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="13710" top="9030" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="13710" top="9030" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Reprojection Error|">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="32" srcpinname="World XYZ" dstnodeid="72" dstpinname="Live World XYZ">
    </LINK>
    <NODE systemname="CameraPreview (Transform DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Transform\CameraPreview (Transform DX9).v4p" nodename="CameraPreview (Transform DX9)" componentmode="Hidden" id="76">
@@ -341,8 +331,6 @@
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="71" srcpinname="View Matrix" dstnodeid="76" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="71" srcpinname="Reprojection Error px" dstnodeid="73" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="81">
    <BOUNDS type="Node" left="6120" top="8865" width="5055" height="270">
@@ -396,10 +384,10 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Resolution">
+   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Resolution" hiddenwhenlocked="1">
    </LINK>
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="84">
-   <BOUNDS type="Node" left="11985" top="6840" width="945" height="270">
+   <BOUNDS type="Node" left="8340" top="6840" width="945" height="270">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -412,16 +400,10 @@
    </LINK>
    <LINK srcnodeid="84" srcpinname="Y" dstnodeid="71" dstpinname="Height">
    </LINK>
-   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="84" dstpinname="XY" linkstyle="VHV">
-   <LINKPOINT x="9850" y="3758">
+   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="84" dstpinname="XY" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="8635" y="3758">
    </LINKPOINT>
-   <LINKPOINT x="10520" y="4103">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Chessboard Layer" dstnodeid="36" dstpinname="Layers" linkstyle="Bezier">
-   <LINKPOINT x="9435" y="5168">
-   </LINKPOINT>
-   <LINKPOINT x="1020" y="5168">
+   <LINKPOINT x="8090" y="4103">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="58" srcpinname="Steady" dstnodeid="42" dstpinname="Y Input Value">
@@ -448,7 +430,7 @@
    <BOUNDS type="Window" left="12900" top="5220" width="10410" height="3870">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="91" dstpinname="Database">
+   <LINK srcnodeid="59" srcpinname="Database" dstnodeid="91" dstpinname="Database" hiddenwhenlocked="1">
    </LINK>
    <LINK srcnodeid="59" srcpinname="Next Board Index" dstnodeid="91" dstpinname="Board Index" linkstyle="Bezier">
    <LINKPOINT x="2760" y="3075">
@@ -471,9 +453,9 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="92" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2775" top="2055" width="0" height="0">
+   <BOUNDS type="Node" left="3675" top="2055" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2775" top="2055" width="795" height="240">
+   <BOUNDS type="Box" left="3675" top="2055" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -488,12 +470,94 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Projector Index">
+   <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Projector Index" linkstyle="Bezier">
+   <LINKPOINT x="3675" y="3608">
+   </LINKPOINT>
+   <LINKPOINT x="2790" y="3608">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="72" dstpinname="Projector Index" linkstyle="Bezier">
-   <LINKPOINT x="2835" y="5303">
+   <LINKPOINT x="3735" y="5310">
    </LINKPOINT>
-   <LINKPOINT x="7260" y="5303">
+   <LINKPOINT x="7260" y="5310">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="93" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="10095" top="6525" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10095" top="6525" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Solve" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="93" srcpinname="Y Output Value" dstnodeid="71" dstpinname="Solve">
+   </LINK>
+   <NODE systemname="SelectViewport (Layer)" filename="SelectViewport (Layer).v4p" componentmode="Hidden" id="95" nodename="SelectViewport (Layer).v4p">
+   <BOUNDS type="Node" left="2385" top="6960" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2385" top="6960" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4230" top="4440" width="6840" height="7455">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Viewport Index" visible="1">
+   </PIN>
+   <PIN pinname="Resolution" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Chessboard Layer" dstnodeid="95" dstpinname="Layers" linkstyle="Bezier">
+   <LINKPOINT x="9450" y="4598">
+   </LINKPOINT>
+   <LINKPOINT x="2445" y="4598">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="960" top="7590" width="1500" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="95" srcpinname="Layer" dstnodeid="96" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Output" dstnodeid="36" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="32" srcpinname="Projector Test" dstnodeid="96" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="12780" y="4913">
+   </LINKPOINT>
+   <LINKPOINT x="1740" y="4913">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Switch" linkstyle="Bezier">
+   <LINKPOINT x="13620" y="4268">
+   </LINKPOINT>
+   <LINKPOINT x="1020" y="4268">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Viewport Index">
+   </LINK>
+   <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Resolution" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="8325" y="3983">
+   </LINKPOINT>
+   <LINKPOINT x="3090" y="3983">
    </LINKPOINT>
    </LINK>
    </PATCH>

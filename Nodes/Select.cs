@@ -31,15 +31,6 @@ namespace VVVV.Nodes.Mapping.Database
 		[Output("Projection")]
 		ISpread<ISpread<Vector2D>> FOutProjection;
 
-		[Output("View Matrix")]
-		ISpread<Matrix4x4> FOutViewMatrix;
-
-		[Output("Projection Matrix")]
-		ISpread<Matrix4x4> FOutProjectionMatrix;
-
-		[Output("Calibrated")]
-		ISpread<bool> FOutCalibrated;
-
         [Import()]
         ILogger FLogger;
         #endregion fields & pins
@@ -53,11 +44,8 @@ namespace VVVV.Nodes.Mapping.Database
 		{
 			int ProjectorCount = FDatabase.Projectors.Count;
 			FOutBoardIndex.SliceCount = ProjectorCount;
-			FOutProjectionMatrix.SliceCount = ProjectorCount;
-			FOutViewMatrix.SliceCount = ProjectorCount;
 			FOutProjection.SliceCount = ProjectorCount;
 			FOutWorld.SliceCount = ProjectorCount;
-			FOutCalibrated.SliceCount = ProjectorCount;
 
 			for (int slice = 0; slice < ProjectorCount; slice++)
 			{
@@ -65,10 +53,6 @@ namespace VVVV.Nodes.Mapping.Database
 				{
 					var Projector = FDatabase.Projectors[FInProjectorIndex[slice]];
 					var Correspondences = Projector.Correspondences;
-
-					FOutViewMatrix[slice] = Projector.View;
-					FOutProjectionMatrix[slice] = Projector.Projection;
-					FOutCalibrated[slice] = Projector.Calibrated;
 
 					FOutBoardIndex[slice].SliceCount = Correspondences.Count;
 					FOutWorld[slice].SliceCount = Correspondences.Count;
@@ -83,8 +67,6 @@ namespace VVVV.Nodes.Mapping.Database
 				}
 				else
 				{
-					FOutViewMatrix[slice] = new Matrix4x4();
-					FOutProjectionMatrix[slice] = new Matrix4x4();
 					FOutWorld[slice] = (ISpread<Vector3D>)new Spread<Vector3D>(0);
 					FOutProjection[slice] = (ISpread<Vector2D>)new Spread<Vector2D>(0);
 				}
