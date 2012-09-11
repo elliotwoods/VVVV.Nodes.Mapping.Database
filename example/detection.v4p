@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\dev\vvvv\VVVV.Nodes.Mapping.Database\plugins\CorrespondencesMappingDatabase\example\detection.v4p" systemname="detection" filename="C:\project files\Solihul\Kinect+Projector\detection.v4p">
+   <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\detection.v4p" systemname="detection" filename="C:\project files\Solihul\Kinect+Projector\detection.v4p">
    <NODE systemname="FullHouse (OpenNI)" filename="..\..\..\Users\elliot\Desktop\VVVV.Tutorials.Mapping2-3D_0\VVVV.Nodes.OpenCV\modules\Image\OpenNI\FullHouse (OpenNI).v4p" nodename="FullHouse (OpenNI)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="525" top="1485" width="3165" height="270">
    </BOUNDS>
@@ -65,7 +65,7 @@
    </BOUNDS>
    <PIN pinname="Board Pitch" slicecount="1" values="0.32">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform" visible="1">
    </PIN>
@@ -132,20 +132,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="3975" top="5190" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="TranslateY" slicecount="1" values="-0.16">
-   </PIN>
-   <PIN pinname="TranslateX" slicecount="1" values="0.14">
-   </PIN>
-   <PIN pinname="ScaleX" slicecount="1" values="0.61">
-   </PIN>
-   <PIN pinname="ScaleY" slicecount="1" values="0.6">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Select (Value)" nodename="Select (Value)" componentmode="Hidden" id="13">
    <BOUNDS type="Node" left="735" top="8970" width="100" height="100">
    </BOUNDS>
@@ -210,8 +196,6 @@
    </LINK>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Resolution">
    </LINK>
-   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="6" dstpinname="Transform In">
-   </LINK>
    <LINK srcnodeid="6" srcpinname="Image XY" dstnodeid="8" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Input" linkstyle="VHV">
@@ -220,7 +204,7 @@
    <LINKPOINT x="3220" y="8183">
    </LINKPOINT>
    </LINK>
-   <BOUNDS type="Window" left="3360" top="3360" width="15225" height="11790">
+   <BOUNDS type="Window" left="12885" top="3375" width="14775" height="11790">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="735" top="9570" width="0" height="0">
@@ -598,8 +582,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="6" dstpinname="Transform">
-   </LINK>
    <LINK srcnodeid="0" srcpinname="RGB Texture" dstnodeid="31" dstpinname="RGB" linkstyle="Bezier" hiddenwhenlocked="1">
    <LINKPOINT x="1620" y="3983">
    </LINKPOINT>
@@ -611,7 +593,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="12855" top="10185" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Projector Test|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Projector Test|">
    </PIN>
    <PIN pinname="Input Node" visible="1">
    </PIN>
@@ -651,5 +633,17 @@
    </LINKPOINT>
    <LINKPOINT x="13365" y="3713">
    </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="69" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="3975" top="5535" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3975" top="5535" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Chessboard transform|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="69" srcpinname="Output Node" dstnodeid="6" dstpinname="Transform In">
    </LINK>
    </PATCH>

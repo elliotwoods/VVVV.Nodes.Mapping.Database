@@ -16,8 +16,8 @@ namespace VVVV.Nodes.Mapping.Database
 
 		public Projector(SerializationInfo info, StreamingContext ctxt)
 		{
-			this.View = DeSerialiseMatrix(info, "View");
-			this.Projection = DeSerialiseMatrix(info, "Projection");
+			this.FView = DeSerialiseMatrix(info, "View");
+			this.FProjection = DeSerialiseMatrix(info, "Projection");
 			this.Calibrated = (bool)info.GetValue("Calibrated", typeof(bool));
 			this.Correspondences = (List<Correspondence>)info.GetValue("Correspondences", typeof(List<Correspondence>));
 		}
@@ -40,8 +40,29 @@ namespace VVVV.Nodes.Mapping.Database
 			}
 		}
 
-		public Matrix4x4 View;
-		public Matrix4x4 Projection;
+        Matrix4x4 FView;
+        public Matrix4x4 View
+        {
+            get
+            {
+                if (!this.Calibrated)
+                    return VVVV.Utils.VMath.VMath.IdentityMatrix;
+                else
+                    return FView;
+            }
+        }
+        Matrix4x4 FProjection;
+        public Matrix4x4 Projection
+        {
+            get
+            {
+                if (!this.Calibrated)
+                    return VVVV.Utils.VMath.VMath.IdentityMatrix;
+                else
+                    return FProjection;
+            }
+        }
+
 		public bool Calibrated;
 		public double ReprojectionError { get; private set; }
 		public List<Correspondence> Correspondences = new List<Correspondence>();
@@ -65,14 +86,13 @@ namespace VVVV.Nodes.Mapping.Database
 					Calibration.Add(Correspondence.World, Correspondence.Projection);
 				}
 				this.ReprojectionError = Calibration.Calibrate(Resolution);
-				this.View = Calibration.View;
-				this.Projection = Calibration.Projection;
+				this.FView = Calibration.View;
+				this.FProjection = Calibration.Projection;
 				this.Calibrated = true;
 			}
 			catch (Exception e)
 			{
-				this.View = new Matrix4x4();
-				this.Projection = new Matrix4x4();
+                this.ReprojectionError = 0.0;
 				this.Calibrated = false;
 			}
 		}

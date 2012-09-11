@@ -1,13 +1,13 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\dev\vvvv\VVVV.Nodes.Mapping.Database\plugins\CorrespondencesMappingDatabase\example\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
-   <BOUNDS type="Window" left="8385" top="1395" width="16200" height="13755">
+   <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
+   <BOUNDS type="Window" left="12600" top="1995" width="16200" height="13755">
    </BOUNDS>
-   <NODE systemname="detection" filename="detection.v4p" nodename="detection.v4p" componentmode="InAWindow" id="32">
+   <NODE systemname="detection" filename="detection.v4p" nodename="detection.v4p" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="4840" top="2492" width="7590" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="3360" top="945" width="10390" height="11785">
    </BOUNDS>
-   <BOUNDS type="Window" left="9540" top="3150" width="14775" height="11790">
+   <BOUNDS type="Window" left="12885" top="3375" width="14775" height="11790">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -20,16 +20,6 @@
    <PIN pinname="Chessboard Layer" visible="1">
    </PIN>
    <PIN pinname="Projector Test" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden" id="36">
-   <BOUNDS type="Node" left="930" top="8100" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="930" top="8100" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="31830" top="3195" width="6240" height="5145">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="42">
@@ -175,7 +165,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4365" top="90" width="1845" height="240">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" encoded="0" values="test-calib.bin">
+   <PIN pinname="Input String" slicecount="1" encoded="0" values="calib.bin">
    </PIN>
    <PIN pinname="Default" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -193,7 +183,7 @@
    <NODE nodename="IOBox (String)" componentmode="InABox" id="64" systemname="IOBox (String)">
    <BOUNDS type="Node" left="4350" top="1590" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="4350" top="1590" width="4365" height="675">
+   <BOUNDS type="Box" left="4350" top="1590" width="3615" height="705">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -245,7 +235,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="13620" top="495" width="480" height="480">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -257,7 +247,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Calibrate">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -333,7 +323,7 @@
    </BOUNDS>
    </NODE>
    <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="81">
-   <BOUNDS type="Node" left="6120" top="8865" width="4575" height="270">
+   <BOUNDS type="Node" left="6120" top="8865" width="4590" height="270">
    </BOUNDS>
    <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
    </PIN>
@@ -422,8 +412,6 @@
    </NODE>
    <LINK srcnodeid="81" srcpinname="Layer" dstnodeid="90" dstpinname="Layers">
    </LINK>
-   <LINK srcnodeid="76" srcpinname="Layer" dstnodeid="81" dstpinname="Layer 3">
-   </LINK>
    <NODE systemname="database insert" filename="database insert.v4p" nodename="database insert.v4p" componentmode="Hidden" id="91">
    <BOUNDS type="Node" left="1080" top="4920" width="7590" height="270">
    </BOUNDS>
@@ -455,9 +443,9 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="92" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3675" top="2055" width="0" height="0">
+   <BOUNDS type="Node" left="10200" top="195" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3675" top="2055" width="795" height="240">
+   <BOUNDS type="Box" left="10200" top="195" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -473,15 +461,15 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="91" dstpinname="Projector Index" linkstyle="Bezier">
-   <LINKPOINT x="3690" y="3608">
+   <LINKPOINT x="10200" y="2663">
    </LINKPOINT>
-   <LINKPOINT x="2985" y="3608">
+   <LINKPOINT x="3015" y="2663">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="72" dstpinname="Projector Index" linkstyle="Bezier">
-   <LINKPOINT x="3735" y="5310">
+   <LINKPOINT x="10200" y="4380">
    </LINKPOINT>
-   <LINKPOINT x="7260" y="5310">
+   <LINKPOINT x="7290" y="4380">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="93" systemname="IOBox (Value Advanced)">
@@ -540,8 +528,6 @@
    </NODE>
    <LINK srcnodeid="95" srcpinname="Layer" dstnodeid="96" dstpinname="Input 2">
    </LINK>
-   <LINK srcnodeid="96" srcpinname="Output" dstnodeid="36" dstpinname="Layers">
-   </LINK>
    <LINK srcnodeid="32" srcpinname="Projector Test" dstnodeid="96" dstpinname="Input 1" linkstyle="Bezier">
    <LINKPOINT x="12375" y="5160">
    </LINKPOINT>
@@ -554,7 +540,11 @@
    <LINKPOINT x="1000" y="4268">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Viewport Index">
+   <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Viewport Index" linkstyle="Bezier">
+   <LINKPOINT x="10185" y="3690">
+   </LINKPOINT>
+   <LINKPOINT x="3735" y="3690">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="83" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Resolution" linkstyle="VHV" hiddenwhenlocked="1">
    <LINKPOINT x="8325" y="3983">
@@ -645,9 +635,9 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="102" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="9930" top="540" width="0" height="0">
+   <BOUNDS type="Node" left="11130" top="540" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="9930" top="540" width="795" height="240">
+   <BOUNDS type="Box" left="11130" top="540" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="6">
    </PIN>
@@ -661,9 +651,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="102" srcpinname="Y Output Value" dstnodeid="100" dstpinname=".. To [" linkstyle="Bezier">
-   <LINKPOINT x="10110" y="2655">
+   <LINKPOINT x="10910" y="2655">
    </LINKPOINT>
-   <LINKPOINT x="13230" y="2655">
+   <LINKPOINT x="13630" y="2655">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="103" systemname="IOBox (Value Advanced)">
@@ -737,5 +727,65 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="97" srcpinname="Reprojection Error" dstnodeid="106" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Layer" dstnodeid="81" dstpinname="Layer 3">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="108" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="930" top="8160" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="930" top="8160" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Output">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Output" dstnodeid="108" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="109" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1755" top="8160" width="2760" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1755" top="8160" width="2835" height="930">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" encoded="0" values="|// this output goes to your renderer.&cr;&lf;Be aware to use viewport indices and feed the view and projection matrices also|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="110" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="11505" top="9675" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11505" top="9675" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Projection Matrix|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="111" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="10650" top="9390" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10650" top="9390" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|View Matrix|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="111" dstpinname="Input Node" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="82" srcpinname="Output" dstnodeid="110" dstpinname="Input Node" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="112" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="8610" top="1485" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8610" top="1485" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Chessboard transform|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Output Node" dstnodeid="32" dstpinname="Chessboard transform">
    </LINK>
    </PATCH>

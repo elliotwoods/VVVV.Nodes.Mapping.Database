@@ -1,15 +1,15 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\project files\Solihul\Kinect+Projector\renderer world.v4p" systemname="renderer world" filename="C:\project files\Solihul\Kinect+Projector\renderer world.v4p">
+   <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\renderer world.v4p" systemname="renderer world" filename="C:\project files\Solihul\Kinect+Projector\renderer world.v4p">
    <BOUNDS type="Window" left="12885" top="7815" width="9000" height="6000">
    </BOUNDS>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="0">
-   <BOUNDS type="Node" left="675" top="435" width="100" height="100">
+   <BOUNDS type="Node" left="945" top="435" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="675" top="435" width="795" height="240">
+   <BOUNDS type="Box" left="945" top="435" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Layers" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layers">
    </PIN>
    </NODE>
    <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="1">
@@ -22,8 +22,6 @@
    <PIN pinname="Layer 2" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="1" dstpinname="Layer 1">
-   </LINK>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="5" stayontop="0">
    <BOUNDS type="Node" left="645" top="3105" width="100" height="100">
    </BOUNDS>
@@ -85,7 +83,7 @@
    <LINK srcnodeid="1" srcpinname="Layer" dstnodeid="5" dstpinname="Layers">
    </LINK>
    <NODE id="6" systemname="AxisAndGrid (DX9)" filename="%VVVV%\lib\nodes\modules\EX9\AxisAndGrid (DX9).v4p" nodename="AxisAndGrid (DX9)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="945" top="1320" width="100" height="100">
+   <BOUNDS type="Node" left="645" top="1320" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1" pintype="Output">
    </PIN>
@@ -106,6 +104,8 @@
    <PIN pinname="ID" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="1" dstpinname="Layer 2">
+   <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="1" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="1" dstpinname="Layer 2">
    </LINK>
    </PATCH>
