@@ -59,7 +59,6 @@ namespace VVVV.Nodes.Mapping.Database
 				}
 
                 DateTime Timestamp = DateTime.Now;
-                int BoardIndex = FInDatabase[0].NextBoardIndex;
 
                 int countInsert = 0;
                 for (int i = 0; i < SpreadMax; i++)

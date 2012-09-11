@@ -40,7 +40,7 @@ namespace VVVV.Nodes.Mapping.Database
 				{
 					if (FInDatabase[i] != null)
 						if (FInClear[i]) {
-							FOutStatus[0] = "Cleared " + FInDatabase[i].Correspondences.Count + " correspondences.";
+							FOutStatus[0] = "Cleared " + FInDatabase[i].Projectors.Count + " projectors.";
 							FInDatabase[i].Clear();
 						}
 				}

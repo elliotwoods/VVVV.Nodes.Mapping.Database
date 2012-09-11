@@ -33,9 +33,6 @@ namespace VVVV.Nodes.Mapping.Database
 		[Output("Database")]
 		Pin<Database> FOutput;
 
-        [Output("Next Board Index")]
-        ISpread<int> FOutNextBoardIndex;
-
 		[Output("Status")]
 		ISpread<string> FOutStatus;
 
@@ -79,8 +76,6 @@ namespace VVVV.Nodes.Mapping.Database
             if (FValid == false)
             {
                 FValid = true;
-
-                FOutNextBoardIndex[0] = FDatabase.NextBoardIndex;
             }
 
 			FOutStatus[0] = FDatabase.Status;

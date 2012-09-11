@@ -5,7 +5,7 @@
     <Configuration>Debug</Configuration>
     <Platform>x86</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>VVVV.Nodes</RootNamespace>
+    <RootNamespace>VVVV.Nodes.Mapping.Database</RootNamespace>
     <AssemblyName>CorrespondencesMappingDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OutputPath>bin\Debug\</OutputPath>
@@ -58,13 +58,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calibrate.cs" />
-    <Compile Include="Clear.cs" />
-    <Compile Include="DatabaseNode.cs" />
-    <Compile Include="Database.cs" />
-    <Compile Include="InsertNode.cs" />
+    <Compile Include="Nodes\Calibrate.cs" />
+    <Compile Include="Nodes\Clear.cs" />
+    <Compile Include="Nodes\Database.cs" />
+    <Compile Include="Lib\Database.cs" />
+    <Compile Include="Nodes\Insert.cs" />
+    <Compile Include="Lib\CalibrationSet.cs" />
+    <Compile Include="Lib\Correspondance.cs" />
+    <Compile Include="Lib\Projector.cs" />
+    <Compile Include="Nodes\IReadsDatabase.cs" />
+    <Compile Include="Nodes\NextBoardIndex.cs" />
+    <Compile Include="Nodes\ProjectorSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectNode.cs" />
+    <Compile Include="Nodes\Select.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

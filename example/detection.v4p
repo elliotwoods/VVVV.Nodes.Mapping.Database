@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
-   <PATCH nodename="C:\project files\Solihul\Kinect+Projector\detection.v4p" systemname="detection" filename="C:\project files\Solihul\Kinect+Projector\detection.v4p">
+   <PATCH nodename="C:\dev\vvvv\VVVV.Nodes.Mapping.Database\plugins\CorrespondencesMappingDatabase\example\detection.v4p" systemname="detection" filename="C:\project files\Solihul\Kinect+Projector\detection.v4p">
    <NODE systemname="FullHouse (OpenNI)" filename="..\..\..\Users\elliot\Desktop\VVVV.Tutorials.Mapping2-3D_0\VVVV.Nodes.OpenCV\modules\Image\OpenNI\FullHouse (OpenNI).v4p" nodename="FullHouse (OpenNI)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="525" top="1485" width="3165" height="270">
    </BOUNDS>
@@ -18,6 +18,10 @@
    <PIN pinname="World Texture" visible="1">
    </PIN>
    <PIN pinname="Normals Texture" visible="1">
+   </PIN>
+   <PIN pinname="Depth Image" visible="1">
+   </PIN>
+   <PIN pinname="Depth Texture" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="2">
@@ -57,11 +61,13 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="18930" top="2880" width="11145" height="8205">
+   <BOUNDS type="Window" left="14910" top="1785" width="9330" height="8205">
    </BOUNDS>
    <PIN pinname="Board Pitch" slicecount="1" values="0.32">
    </PIN>
    <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
@@ -81,7 +87,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Resolution" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Resolution">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)" exposed="0">
@@ -127,15 +133,17 @@
    </PIN>
    </NODE>
    <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="3720" top="5550" width="100" height="100">
+   <BOUNDS type="Node" left="3975" top="5190" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="TranslateY" slicecount="1" values="-0.41">
+   <PIN pinname="TranslateY" slicecount="1" values="-0.16">
    </PIN>
-   <PIN pinname="TranslateX" slicecount="1" values="-0.28">
+   <PIN pinname="TranslateX" slicecount="1" values="0.14">
    </PIN>
    <PIN pinname="ScaleX" slicecount="1" values="0.61">
    </PIN>
    <PIN pinname="ScaleY" slicecount="1" values="0.6">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Select (Value)" nodename="Select (Value)" componentmode="Hidden" id="13">
@@ -212,7 +220,7 @@
    <LINKPOINT x="3220" y="8183">
    </LINKPOINT>
    </LINK>
-   <BOUNDS type="Window" left="11625" top="3120" width="14775" height="11790">
+   <BOUNDS type="Window" left="3360" top="3360" width="15225" height="11790">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="735" top="9570" width="0" height="0">
@@ -291,9 +299,9 @@
    <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="6765" top="5640" width="0" height="0">
+   <BOUNDS type="Node" left="7815" top="5220" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="6765" top="5640" width="795" height="240">
+   <BOUNDS type="Box" left="7815" top="5220" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.41">
    </PIN>
@@ -307,9 +315,9 @@
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Lightness">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="4755" top="465" width="0" height="0">
+   <BOUNDS type="Node" left="5250" top="465" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="4755" top="465" width="795" height="480">
+   <BOUNDS type="Box" left="5250" top="465" width="795" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="2" values="10,9">
    </PIN>
@@ -341,9 +349,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="26" dstpinname="XY" linkstyle="Bezier">
-   <LINKPOINT x="4740" y="2700">
+   <LINKPOINT x="5070" y="2700">
    </LINKPOINT>
-   <LINKPOINT x="1740" y="2700">
+   <LINKPOINT x="1905" y="2700">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="26" srcpinname="X" dstnodeid="3" dstpinname="Board size X">
@@ -375,7 +383,7 @@
    <NODE systemname="ViewWorld (OpenNI DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Image\OpenNI\ViewWorld (OpenNI DX9).v4p" nodename="ViewWorld (OpenNI DX9)" componentmode="Hidden" id="31">
    <BOUNDS type="Node" left="8430" top="6240" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="RGB" visible="1">
+   <PIN pinname="RGB" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="World" visible="1">
    </PIN>
@@ -518,12 +526,6 @@
    </LINK>
    <LINK srcnodeid="38" srcpinname="Output" dstnodeid="37" dstpinname="Lightness">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="RGB Texture" dstnodeid="31" dstpinname="RGB" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="1620" y="3983">
-   </LINKPOINT>
-   <LINKPOINT x="8925" y="3983">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="52">
    <BOUNDS type="Node" left="4530" top="8220" width="100" height="100">
    </BOUNDS>
@@ -587,7 +589,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="5205" top="7980" width="2370" height="435">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|// if you want to preview points in projection pixel space|" encoded="0">
+   <PIN pinname="Input String" visible="0" slicecount="1" encoded="0" values="|// if you want to preview points in projection pixel space|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -596,4 +598,58 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="6" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="RGB Texture" dstnodeid="31" dstpinname="RGB" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="1620" y="3983">
+   </LINKPOINT>
+   <LINKPOINT x="8925" y="3983">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="66">
+   <BOUNDS type="Node" left="12855" top="10185" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12855" top="10185" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Projector Test|" encoded="0">
+   </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="ViewWorld (OpenNI DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Image\OpenNI\ViewWorld (OpenNI DX9).v4p" nodename="ViewWorld (OpenNI DX9)" componentmode="Hidden" id="67">
+   <BOUNDS type="Node" left="12855" top="6240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="RGB" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="World" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Alpha" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="66" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Edge (EX9.Texture Filter)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\Filter\Edge\Edge (EX9.Texture Filter).v4p" nodename="Edge (EX9.Texture Filter)" componentmode="Hidden" id="68">
+   <BOUNDS type="Node" left="13365" top="5700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="67" dstpinname="RGB">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="World Texture" dstnodeid="67" dstpinname="World" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="3000" y="3983">
+   </LINKPOINT>
+   <LINKPOINT x="13605" y="3983">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="RGB Texture" dstnodeid="68" dstpinname="Input" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="1620" y="3713">
+   </LINKPOINT>
+   <LINKPOINT x="13365" y="3713">
+   </LINKPOINT>
+   </LINK>
    </PATCH>
