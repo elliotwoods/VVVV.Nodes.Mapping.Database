@@ -41,15 +41,14 @@ namespace VVVV.Nodes.Mapping.Database
         {
 			try
 			{
-				Database loaded;
-				Stream stream = File.Open(FFilename, FileMode.Open);
+				var stream = File.Open(FFilename, FileMode.Open, FileAccess.Read);
 				try
 				{
 					BinaryFormatter binaryFormatter = new BinaryFormatter();
 					FProjectors = (Dictionary<int, Projector>)binaryFormatter.Deserialize(stream);
 
 					this.Status = "Loaded " + this.FProjectors.Count + " projectors.";
-					this.OnUpdate();
+					this.OnUpdateWithoutAutoSave();
 				}
 				catch (Exception e)
 				{
@@ -70,7 +69,12 @@ namespace VVVV.Nodes.Mapping.Database
         {
 			try
 			{
-				Stream stream = File.Open(FFilename, FileMode.Create);
+				FileStream stream;
+				if (File.Exists(FFilename))
+					stream = File.Open(FFilename, FileMode.Truncate, FileAccess.Write);
+				else
+					stream = File.Open(FFilename, FileMode.Create, FileAccess.Write);
+
 				try
 				{
 					BinaryFormatter bFormatter = new BinaryFormatter();
@@ -105,13 +109,17 @@ namespace VVVV.Nodes.Mapping.Database
 
         public void OnUpdate()
         {
-            if (Update == null)
-                return;
-            Update(this, EventArgs.Empty);
-
+			OnUpdateWithoutAutoSave();
             if (FAutoSave)
                 Save();
         }
+
+		public void OnUpdateWithoutAutoSave()
+		{
+			if (Update == null)
+				return;
+			Update(this, EventArgs.Empty);
+		}
 
         public event EventHandler Update;
 

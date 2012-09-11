@@ -35,8 +35,14 @@ namespace VVVV.Nodes.Mapping.Database
 			{
 				foreach (int ProjectorIndex in FInProjectorIndex)
 				{
+					bool invalidate = false;
 					if (!FInDatabase[0].Projectors.ContainsKey(ProjectorIndex))
+					{
+						invalidate = true;
 						FInDatabase[0].Projectors.Add(ProjectorIndex, new Projector());
+					}
+					if (invalidate)
+						FInDatabase[0].OnUpdate();
 				}
 			}
 		}

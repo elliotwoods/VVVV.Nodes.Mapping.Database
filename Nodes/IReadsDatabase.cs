@@ -49,12 +49,17 @@ namespace VVVV.Nodes.Mapping.Database
 			if (FDatabase != null)
 			{
 				FDatabase.Update += FDatabase_Update;
-				FValid = false;
+				this.Invalidate();
 			}
 		}
 
 		bool FValid = true;
 		void FDatabase_Update(object sender, EventArgs e)
+		{
+			this.Invalidate();
+		}
+
+		protected void Invalidate()
 		{
 			FValid = false;
 		}

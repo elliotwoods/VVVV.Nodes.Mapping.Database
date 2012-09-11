@@ -20,13 +20,16 @@ namespace VVVV.Nodes.Mapping.Database
 	{
 		#region fields & pins
 		[Input("Projector Index")]
-		ISpread<int> FInProjectorIndex;
+		IDiffSpread<int> FInProjectorIndex;
 
 		[Output("View Matrix")]
 		ISpread<Matrix4x4> FOutViewMatrix;
 
 		[Output("Projection Matrix")]
 		ISpread<Matrix4x4> FOutProjectionMatrix;
+
+		[Output("Reprojection Error")]
+		ISpread<double> FOutReprojectionError;
 
 		[Output("Calibrated")]
 		ISpread<bool> FOutCalibrated;
@@ -38,6 +41,8 @@ namespace VVVV.Nodes.Mapping.Database
 		//called when data for any output pin is requested
 		public void Evaluate2(int SpreadMax)
 		{
+			if (FInProjectorIndex.IsChanged)
+				this.Invalidate();
 		}
 
 		public override void UpdateOutput(int SpreadMax)
@@ -45,6 +50,7 @@ namespace VVVV.Nodes.Mapping.Database
 			int ProjectorCount = FDatabase.Projectors.Count;
 			FOutProjectionMatrix.SliceCount = ProjectorCount;
 			FOutViewMatrix.SliceCount = ProjectorCount;
+			FOutReprojectionError.SliceCount = ProjectorCount;
 			FOutCalibrated.SliceCount = ProjectorCount;
 
 			for (int slice = 0; slice < ProjectorCount; slice++)
@@ -56,6 +62,7 @@ namespace VVVV.Nodes.Mapping.Database
 
 					FOutViewMatrix[slice] = Projector.View;
 					FOutProjectionMatrix[slice] = Projector.Projection;
+					FOutReprojectionError[slice] = Projector.ReprojectionError;
 					FOutCalibrated[slice] = Projector.Calibrated;
 				}
 				else

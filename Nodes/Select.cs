@@ -20,7 +20,7 @@ namespace VVVV.Nodes.Mapping.Database
     {
         #region fields & pins
         [Input("Projector Index")]
-		ISpread<int> FInProjectorIndex;
+		IDiffSpread<int> FInProjectorIndex;
 
         [Output("Board Index")]
 		ISpread<ISpread<int>> FOutBoardIndex;
@@ -38,6 +38,8 @@ namespace VVVV.Nodes.Mapping.Database
         //called when data for any output pin is requested
         public void Evaluate2(int SpreadMax)
         {
+			if (FInProjectorIndex.IsChanged)
+				this.Invalidate();
         }
 
 		public override void UpdateOutput(int SpreadMax)
