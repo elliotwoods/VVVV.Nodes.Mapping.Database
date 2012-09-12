@@ -20,7 +20,7 @@ namespace VVVV.Nodes.Mapping.Database
 		{
 			get
 			{
-                return FExtrinsics.Matrix;
+                return FExtrinsics.Matrix * VMath.Scale(1.0, 1.0, -1.0);
 			}
 		}
 
@@ -28,7 +28,15 @@ namespace VVVV.Nodes.Mapping.Database
 		{
 			get
 			{
-				return VMath.Scale(-1.0, -1.0, -1.0) * FIntrinsics.Matrix * VMath.Scale(2.0 / (double)FIntrinsics.SensorSize.Width, -2.0 / (double)FIntrinsics.SensorSize.Height, 1.0) * VMath.Translate(-1.0, 1.0, 0.0);
+				return VMath.Scale(-1.0, -1.0, 1.0) * FIntrinsics.Matrix * VMath.Scale(2.0 / (double)FIntrinsics.SensorSize.Width, -2.0 / (double)FIntrinsics.SensorSize.Height, 1.0) * VMath.Translate(-1.0, 1.0, 0.0);
+			}
+		}
+
+		public Intrinsics Intrinsics
+		{
+			get
+			{
+				return FIntrinsics;
 			}
 		}
 

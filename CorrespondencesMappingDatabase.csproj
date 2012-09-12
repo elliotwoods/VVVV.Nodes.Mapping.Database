@@ -70,6 +70,7 @@
     <Compile Include="Lib\CalibrationSet.cs" />
     <Compile Include="Lib\Correspondence.cs" />
     <Compile Include="Lib\Projector.cs" />
+    <Compile Include="Nodes\Intrinsics.cs" />
     <Compile Include="Nodes\IReadsDatabase.cs" />
     <Compile Include="Nodes\NextBoardIndex.cs" />
     <Compile Include="Nodes\PreviewEX9.cs" />

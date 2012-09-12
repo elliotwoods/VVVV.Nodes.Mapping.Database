@@ -1,13 +1,13 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
    <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\main.v4p" systemname="main" filename="C:\project files\Solihul\Kinect+Projector\main.v4p">
-   <BOUNDS type="Window" left="8460" top="3645" width="19935" height="13755">
+   <BOUNDS type="Window" left="8295" top="6075" width="19935" height="13755">
    </BOUNDS>
    <NODE systemname="detection" filename="detection.v4p" nodename="detection.v4p" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="4840" top="2492" width="7590" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="3360" top="945" width="10390" height="11785">
    </BOUNDS>
-   <BOUNDS type="Window" left="12885" top="3375" width="14775" height="11790">
+   <BOUNDS type="Window" left="14760" top="5610" width="14775" height="11790">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -71,9 +71,9 @@
    <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Enabled">
    </LINK>
    <NODE systemname="detection hold still" filename="detection hold still.v4p" nodename="detection hold still.v4p" componentmode="Hidden" id="58">
-   <BOUNDS type="Node" left="8640" top="3345" width="5040" height="270">
+   <BOUNDS type="Node" left="8640" top="3345" width="10140" height="270">
    </BOUNDS>
-   <BOUNDS type="Window" left="14505" top="1305" width="9660" height="15480">
+   <BOUNDS type="Window" left="11865" top="1320" width="14280" height="15480">
    </BOUNDS>
    <PIN pinname="World XYZ" visible="1">
    </PIN>
@@ -232,10 +232,10 @@
    </NODE>
    <LINK srcnodeid="69" srcpinname="Y Output Value" dstnodeid="68" dstpinname="Clear">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="70" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="13620" top="795" width="0" height="0">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="70" systemname="IOBox (Value Advanced)" exposed="1">
+   <BOUNDS type="Node" left="11970" top="795" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="13620" top="795" width="480" height="480">
+   <BOUNDS type="Box" left="11970" top="795" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
@@ -308,7 +308,7 @@
    </LINK>
    <LINK srcnodeid="32" srcpinname="World XYZ" dstnodeid="72" dstpinname="Live World XYZ">
    </LINK>
-   <NODE systemname="CameraPreview (Transform DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Transform\CameraPreview (Transform DX9).v4p" nodename="CameraPreview (Transform DX9)" componentmode="InAWindow" id="76">
+   <NODE systemname="CameraPreview (Transform DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\Transform\CameraPreview (Transform DX9).v4p" nodename="CameraPreview (Transform DX9)" componentmode="Hidden" id="76">
    <BOUNDS type="Node" left="10650" top="8325" width="2685" height="270">
    </BOUNDS>
    <PIN pinname="View" visible="1" slicecount="1" values="||">
@@ -337,7 +337,7 @@
    </PIN>
    <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Layer 4" visible="-1" slicecount="1" pintype="Input" values="||" encoded="0">
+   <PIN pinname="Layer 4" visible="-1" slicecount="1" pintype="Input" encoded="0" values="||">
    </PIN>
    <PIN pinname="Enabled" visible="-1" pintype="Input" slicecount="1" values="1">
    </PIN>
@@ -405,7 +405,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="6120" top="9435" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="12885" top="7815" width="9000" height="6000">
+   <BOUNDS type="Window" left="11445" top="9075" width="9000" height="6000">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -523,9 +523,9 @@
    <LINK srcnodeid="95" srcpinname="Layer" dstnodeid="96" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Switch" linkstyle="Bezier">
-   <LINKPOINT x="13610" y="4668">
+   <LINKPOINT x="12510" y="4668">
    </LINKPOINT>
-   <LINKPOINT x="1000" y="4768">
+   <LINKPOINT x="450" y="4768">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="95" dstpinname="Viewport Index" linkstyle="Bezier" hiddenwhenlocked="1">
@@ -759,9 +759,9 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|View Matrix|">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="111" dstpinname="Input Node" hiddenwhenlocked="1">
-   </LINK>
    <LINK srcnodeid="82" srcpinname="Output" dstnodeid="110" dstpinname="Input Node" hiddenwhenlocked="1">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="112" systemname="IOBox (Node)">
@@ -824,11 +824,7 @@
    <LINKPOINT x="1710" y="5560">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="97" srcpinname="Projection Matrix" dstnodeid="82" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="82" srcpinname="Output" dstnodeid="76" dstpinname="Projection">
-   </LINK>
-   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="76" dstpinname="View">
    </LINK>
    <NODE systemname="GetMatrix (Transform)" nodename="GetMatrix (Transform)" componentmode="Hidden" id="118">
    <BOUNDS type="Node" left="15855" top="8325" width="100" height="100">
@@ -863,9 +859,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="121" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="14820" top="10395" width="0" height="0">
+   <BOUNDS type="Node" left="14835" top="10425" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="14820" top="10395" width="3180" height="960">
+   <BOUNDS type="Box" left="14835" top="10425" width="3180" height="960">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -967,5 +963,67 @@
    </LINKPOINT>
    <LINKPOINT x="14760" y="2655">
    </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="128" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="14910" top="1755" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14910" top="1755" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Kinect Transform|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Output Node" dstnodeid="32" dstpinname="Kinect Transform" linkstyle="VHV">
+   <LINKPOINT x="14910" y="2228">
+   </LINKPOINT>
+   <LINKPOINT x="12435" y="2228">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="76" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="View Matrix" dstnodeid="111" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="Projection Matrix" dstnodeid="82" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="132" systemname="IOBox (Value Advanced)" exposed="1">
+   <BOUNDS type="Node" left="15360" top="795" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15360" top="795" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Use Override|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="132" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Use Override">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="133" systemname="IOBox (Value Advanced)" exposed="1">
+   <BOUNDS type="Node" left="18720" top="795" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="18720" top="795" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Capture Override|" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="58" dstpinname="Capture Override">
    </LINK>
    </PATCH>

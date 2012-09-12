@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
    <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\renderer world.v4p" systemname="renderer world" filename="C:\project files\Solihul\Kinect+Projector\renderer world.v4p">
-   <BOUNDS type="Window" left="12885" top="7815" width="9000" height="6000">
+   <BOUNDS type="Window" left="11445" top="9075" width="9000" height="6000">
    </BOUNDS>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="0">
    <BOUNDS type="Node" left="945" top="435" width="100" height="100">
@@ -53,11 +53,11 @@
    </PIN>
    <BOUNDS type="Box" left="1605" top="2655">
    </BOUNDS>
-   <PIN pinname="Initial Yaw" slicecount="1" values="-0.1">
+   <PIN pinname="Initial Yaw" slicecount="1" values="-0.14">
    </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="2">
+   <PIN pinname="Inital Distance" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Initial Interest" slicecount="3" values="0.41,0.41,0.41">
+   <PIN pinname="Initial Interest" slicecount="3" values="2,2,2">
    </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="View" dstnodeid="5" dstpinname="View">
@@ -107,5 +107,25 @@
    <LINK srcnodeid="6" srcpinname="Layer" dstnodeid="1" dstpinname="Layer 1">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="1" dstpinname="Layer 2">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2145" top="810" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2145" top="810" width="795" height="720">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,1,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Initial Interest|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Initial Interest">
    </LINK>
    </PATCH>

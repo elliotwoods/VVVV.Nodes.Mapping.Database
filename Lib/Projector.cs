@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using VVVV.Utils.VMath;
 using System.Drawing;
+using VVVV.Nodes.OpenCV;
 
 namespace VVVV.Nodes.Mapping.Database
 {
@@ -77,6 +78,8 @@ namespace VVVV.Nodes.Mapping.Database
 		public double ReprojectionError { get; private set; }
 		public List<Correspondence> Correspondences = new List<Correspondence>();
 
+		public Intrinsics Intrinsics { get; private set; }
+
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			SerialiseMatrix(info, "View", this.View);
@@ -100,6 +103,7 @@ namespace VVVV.Nodes.Mapping.Database
 				this.ReprojectionError = Calibration.Calibrate(Resolution);
 				this.FView = Calibration.View;
 				this.FProjection = Calibration.Projection;
+				this.Intrinsics = Calibration.Intrinsics;
 				this.Calibrated = true;
 			}
 			catch (Exception e)
