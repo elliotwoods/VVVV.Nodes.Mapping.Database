@@ -1,13 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha28.dtd" >
    <PATCH nodename="F:\dev\VVVV.Nodes.Mapping.Database\example\graph markers.v4p" systemname="graph markers" filename="C:\project files\Solihul\Kinect+Projector\graph markers.v4p">
-   <NODE systemname="Vector (3d Split)" nodename="Vector (3d Split)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="420" top="1605" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="XYZ" visible="1">
-   </PIN>
-   <PIN pinname="Z" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Quad (DX9)" nodename="Quad (DX9)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="525" top="2730" width="100" height="100">
    </BOUNDS>
@@ -43,7 +35,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Map (Value)" nodename="Map (Value)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="975" top="1980" width="100" height="100">
+   <BOUNDS type="Node" left="1005" top="1800" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -56,16 +48,6 @@
    <PIN pinname="Destination Maximum" slicecount="1" values="-1">
    </PIN>
    </NODE>
-   <NODE id="5" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)" exposed="0">
-   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="XYZ">
-   </PIN>
-   <BOUNDS type="Box" left="420" top="240" width="750" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="420" top="240" width="750" height="240">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="0" dstpinname="XYZ">
-   </LINK>
    <LINK srcnodeid="3" srcpinname="Transform Out" dstnodeid="1" dstpinname="Transform">
    </LINK>
    <NODE id="6" systemname="IOBox (Color)" componentmode="InABox" nodename="IOBox (Color)" exposed="0">
@@ -92,9 +74,7 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="Output" dstnodeid="3" dstpinname="TranslateY">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Z" dstnodeid="4" dstpinname="Input">
-   </LINK>
-   <BOUNDS type="Window" left="20115" top="10215" width="4935" height="4590">
+   <BOUNDS type="Window" left="20115" top="10215" width="4740" height="4590">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" exposed="0">
    <BOUNDS type="Node" left="3210" top="240" width="100" height="100">
@@ -125,5 +105,27 @@
    <LINK srcnodeid="11" srcpinname="Output" dstnodeid="1" dstpinname="Color">
    </LINK>
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Select">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="660" top="240" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="660" top="240" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Z" encoded="0">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="700" y="1170">
+   </LINKPOINT>
+   <LINKPOINT x="1010" y="1110">
+   </LINKPOINT>
    </LINK>
    </PATCH>

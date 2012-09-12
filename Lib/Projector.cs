@@ -12,7 +12,11 @@ namespace VVVV.Nodes.Mapping.Database
 	[Serializable()]
 	public class Projector : ISerializable
 	{
-		public Projector() { }
+		public Projector(int Width, int Height)
+		{
+			this.Width = Width;
+			this.Height = Height;
+		}
 
 		public Projector(SerializationInfo info, StreamingContext ctxt)
 		{
@@ -21,6 +25,8 @@ namespace VVVV.Nodes.Mapping.Database
             this.ReprojectionError = (double)info.GetValue("Reprojection Error", typeof(double));
 			this.Calibrated = (bool)info.GetValue("Calibrated", typeof(bool));
 			this.Correspondences = (List<Correspondence>)info.GetValue("Correspondences", typeof(List<Correspondence>));
+			this.Width = (int)info.GetValue("Width", typeof(int));
+			this.Height = (int)info.GetValue("Height", typeof(int));
 		}
 
 		static Matrix4x4 DeSerialiseMatrix(SerializationInfo info, string Name)
@@ -40,6 +46,9 @@ namespace VVVV.Nodes.Mapping.Database
 				info.AddValue(Name + "_" + i.ToString(), Matrix[i]);
 			}
 		}
+
+		public int Width {get; private set;}
+		public int Height {get; private set;}
 
         Matrix4x4 FView;
         public Matrix4x4 View
@@ -75,6 +84,8 @@ namespace VVVV.Nodes.Mapping.Database
 			info.AddValue("Calibrated", this.Calibrated);
 			info.AddValue("Reprojection Error", this.ReprojectionError);
 			info.AddValue("Correspondences", this.Correspondences);
+			info.AddValue("Width", this.Width);
+			info.AddValue("Height", this.Height);
 		}
 
 		public void Calibrate(Size Resolution)
@@ -97,5 +108,23 @@ namespace VVVV.Nodes.Mapping.Database
 				this.Calibrated = false;
 			}
 		}
+
+        public Dictionary<int, List<Correspondence>> CorrespondencesPerBoard
+        {
+            get
+            {
+                Dictionary<int, List<Correspondence>> CorrespondencesPerBoard = new Dictionary<int, List<Correspondence>>();
+
+                foreach (var correspondence in this.Correspondences)
+                {
+                    if (!CorrespondencesPerBoard.ContainsKey(correspondence.BoardIndex))
+                        CorrespondencesPerBoard.Add(correspondence.BoardIndex, new List<Correspondence>());
+
+                    CorrespondencesPerBoard[correspondence.BoardIndex].Add(correspondence);
+                }
+
+                return CorrespondencesPerBoard;
+            }
+        }
 	}
 }

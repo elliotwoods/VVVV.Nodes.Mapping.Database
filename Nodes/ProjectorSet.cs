@@ -24,6 +24,12 @@ namespace VVVV.Nodes.Mapping.Database
 		[Input("Projector Index")]
 		ISpread<int> FInProjectorIndex;
 
+		[Input("Width", DefaultValue=1024)]
+		ISpread<int> FInWidth;
+
+		[Input("Height", DefaultValue=768)]
+		ISpread<int> FInHeight;
+
 		[Import()]
 		ILogger FLogger;
 		#endregion fields & pins
@@ -33,13 +39,13 @@ namespace VVVV.Nodes.Mapping.Database
 		{
 			if (FInDatabase[0] != null)
 			{
-				foreach (int ProjectorIndex in FInProjectorIndex)
+				for(int slice = 0; slice < SpreadMax; slice++)
 				{
 					bool invalidate = false;
-					if (!FInDatabase[0].Projectors.ContainsKey(ProjectorIndex))
+					if (!FInDatabase[0].Projectors.ContainsKey(FInProjectorIndex[slice]))
 					{
 						invalidate = true;
-						FInDatabase[0].Projectors.Add(ProjectorIndex, new Projector());
+						FInDatabase[0].Projectors.Add(FInProjectorIndex[slice], new Projector(FInWidth[slice],FInHeight[slice]));
 					}
 					if (invalidate)
 						FInDatabase[0].OnUpdate();

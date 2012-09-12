@@ -33,6 +33,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\vvvv\vvvv-sdk\vvvv45\addonpack\lib\nodes\plugins\Emgu.Util.dll</HintPath>
     </Reference>
+    <Reference Include="SlimDX, Version=4.0.12.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\vvvv\vvvv-sdk\vvvv45\lib\core\SlimDX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition.Codeplex">
       <HintPath>C:\vvvv\vvvv-sdk\vvvv45\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
@@ -64,10 +68,11 @@
     <Compile Include="Lib\Database.cs" />
     <Compile Include="Nodes\Insert.cs" />
     <Compile Include="Lib\CalibrationSet.cs" />
-    <Compile Include="Lib\Correspondance.cs" />
+    <Compile Include="Lib\Correspondence.cs" />
     <Compile Include="Lib\Projector.cs" />
     <Compile Include="Nodes\IReadsDatabase.cs" />
     <Compile Include="Nodes\NextBoardIndex.cs" />
+    <Compile Include="Nodes\PreviewEX9.cs" />
     <Compile Include="Nodes\ProjectorSet.cs" />
     <Compile Include="Nodes\Transform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

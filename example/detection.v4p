@@ -375,6 +375,8 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="maxjump" slicecount="1" values="0.05">
+   </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="World Texture" dstnodeid="31" dstpinname="World" hiddenwhenlocked="1" linkstyle="Bezier">
    <LINKPOINT x="3000" y="3983">
@@ -671,7 +673,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="14100" top="5640" width="2715" height="1935">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|//on ati cards you may need to hack this module as L16 doesn&apos;t work well as a render target on these cards.&cr;&lf;you could manually change the DX9Texture types internally, or put a renderer inbetween which renders down to L8|" encoded="0">
+   <PIN pinname="Input String" visible="0" slicecount="1" encoded="0" values="|//on ati cards you may need to hack this module as L16 doesn&apos;t work well as a render target on these cards.&cr;&lf;you could manually change the DX9Texture types internally, or put a renderer inbetween which renders down to L8|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>

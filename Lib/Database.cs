@@ -137,10 +137,13 @@ namespace VVVV.Nodes.Mapping.Database
         {
 			if (!this.FProjectors.ContainsKey(ProjectorIndex))
 			{
-				FProjectors.Add(ProjectorIndex, new Projector());
+				this.Status = "Cannot insert correspondences on projector #" + ProjectorIndex + " because it doesn't exist";
 			}
-			FProjectors[ProjectorIndex].Correspondences.Add(new Correspondence(BoardIndex, World, Projection, Timestamp));
-			this.OnUpdate();
+			else
+			{
+				FProjectors[ProjectorIndex].Correspondences.Add(new Correspondence(BoardIndex, World, Projection, Timestamp));
+				this.OnUpdate();
+			}
         }
 
 		public void Clear()
